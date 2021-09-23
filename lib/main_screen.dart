@@ -10,7 +10,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  CategoryType categoryType = CategoryType.ui;
+  CategoryType categoryType = CategoryType.bread;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -172,17 +172,22 @@ class _MainScreenState extends State<MainScreen> {
           padding: const EdgeInsets.only(left: 16, right: 16),
           child: Row(
             children: <Widget>[
-              getButtonUI(CategoryType.ui, categoryType == CategoryType.ui),
+              getButtonUI(
+                  CategoryType.bread, categoryType == CategoryType.bread),
+              const SizedBox(
+                width: 16,
+              ),
+              getButtonUI(CategoryType.cake, categoryType == CategoryType.cake),
               const SizedBox(
                 width: 16,
               ),
               getButtonUI(
-                  CategoryType.coding, categoryType == CategoryType.coding),
+                  CategoryType.sushi, categoryType == CategoryType.sushi),
               const SizedBox(
                 width: 16,
               ),
               getButtonUI(
-                  CategoryType.basic, categoryType == CategoryType.basic),
+                  CategoryType.fruit, categoryType == CategoryType.fruit),
             ],
           ),
         ),
@@ -213,17 +218,24 @@ class _MainScreenState extends State<MainScreen> {
 
   Widget getButtonUI(CategoryType categoryTypeData, bool isSelected) {
     String txt = '';
-    if (CategoryType.ui == categoryTypeData) {
-      txt = 'Ui/Ux';
-    } else if (CategoryType.coding == categoryTypeData) {
-      txt = 'Coding';
-    } else if (CategoryType.basic == categoryTypeData) {
-      txt = 'Basic UI';
+    String img = '';
+    if (CategoryType.bread == categoryTypeData) {
+      txt = 'Bread';
+      img = 'assets/images/bread.png';
+    } else if (CategoryType.cake == categoryTypeData) {
+      txt = 'Cake';
+      img = 'assets/images/cake.png';
+    } else if (CategoryType.sushi == categoryTypeData) {
+      txt = 'Sushi';
+      img = 'assets/images/sushi.png';
+    } else if (CategoryType.fruit == categoryTypeData) {
+      txt = 'Fruit';
+      img = 'assets/images/fruit.png';
     }
     return Expanded(
       child: Container(
         decoration: BoxDecoration(
-            color: isSelected ? AppTheme.grey : AppTheme.nearlyWhite,
+            color: isSelected ? AppTheme.light_red : AppTheme.nearlyWhite,
             borderRadius: const BorderRadius.all(Radius.circular(24.0)),
             border: Border.all(color: AppTheme.grey)),
         child: Material(
@@ -239,18 +251,22 @@ class _MainScreenState extends State<MainScreen> {
             child: Padding(
               padding: const EdgeInsets.only(
                   top: 12, bottom: 12, left: 18, right: 18),
-              child: Center(
-                child: Text(
-                  txt,
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 12,
-                    letterSpacing: 0.27,
-                    color: isSelected ? AppTheme.nearlyWhite : AppTheme.grey,
+              child: Container(
+                  child: Column(
+                children: [
+                  Image.asset(img),
+                  Text(
+                    txt,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12,
+                      letterSpacing: 0.27,
+                      color: isSelected ? AppTheme.nearlyWhite : AppTheme.grey,
+                    ),
                   ),
-                ),
-              ),
+                ],
+              )),
             ),
           ),
         ),
@@ -297,8 +313,4 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-enum CategoryType {
-  ui,
-  coding,
-  basic,
-}
+enum CategoryType { bread, cake, sushi, fruit }
