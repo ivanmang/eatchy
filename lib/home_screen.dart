@@ -16,14 +16,28 @@ class HomeScreen extends StatelessWidget {
               opacity: 1.0,
               duration: const Duration(milliseconds: 500),
               child: _buildLogo),
-          TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MainScreen()),
-                );
-              },
-              child: const Text("Start"))
+          Column(
+            children: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MainScreen()),
+                    );
+                  },
+                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppTheme.light_red), fixedSize: MaterialStateProperty.all(Size(200, 30))),
+                  child: const Text("Sign in ", style: TextStyle(color: AppTheme.nearlyWhite),)),
+                  SizedBox(height: 20,),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MainScreen()),
+                    );
+                  },
+                  child: const Text("Continue without sign in")),
+            ],
+          )
         ],
       ),
     );
