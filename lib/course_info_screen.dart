@@ -1,4 +1,5 @@
 import 'package:eatchy/app_theme.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CourseInfoScreen extends StatefulWidget {
@@ -56,7 +57,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
               children: <Widget>[
                 AspectRatio(
                   aspectRatio: 1.2,
-                  child: Image.asset('assets/images/webInterFace.png'),
+                  child: Image.asset('assets/images/esushi.jpg'),
                 ),
               ],
             ),
@@ -95,7 +96,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                             padding: const EdgeInsets.only(
                                 top: 32.0, left: 18, right: 16),
                             child: Text(
-                              'Web Design\nCourse',
+                              'Express Sushi',
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
@@ -112,21 +113,32 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                Text(
-                                  '\$28.99',
+                                 Text(
+                                  '\$10',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w200,
+                                    fontWeight: FontWeight.bold,
                                     fontSize: 22,
                                     letterSpacing: 0.27,
-                                    color: AppTheme.nearlyBlack,
+                                    color: AppTheme.light_red,
+                                  ),
+                                ),
+                                Text(
+                                  '\$30',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 22,
+                                    letterSpacing: 0.27,
+                                    color: AppTheme.grey,
+                                    decoration: TextDecoration.lineThrough
                                   ),
                                 ),
                                 Container(
                                   child: Row(
                                     children: <Widget>[
                                       Text(
-                                        '4.3',
+                                        '4.6',
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           fontWeight: FontWeight.w200,
@@ -153,9 +165,9 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                               padding: const EdgeInsets.all(8),
                               child: Row(
                                 children: <Widget>[
-                                  getTimeBoxUI('24', 'Classe'),
-                                  getTimeBoxUI('2hours', 'Time'),
-                                  getTimeBoxUI('24', 'Seat'),
+                                  getTimeBoxUI('20:00 - 22:00', 'Collection time'),
+                                  getTimeBoxUI('6', 'Remaining'),
+                                  getTimeBoxUI('300 m', 'Away'),
                                 ],
                               ),
                             ),
@@ -219,7 +231,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                     child: Container(
                                       height: 48,
                                       decoration: BoxDecoration(
-                                        color: AppTheme.nearlyBlack,
+                                        color: AppTheme.light_red,
                                         borderRadius: const BorderRadius.all(
                                           Radius.circular(16.0),
                                         ),
@@ -233,7 +245,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                       ),
                                       child: Center(
                                         child: Text(
-                                          'Join Course',
+                                          'Reserve',
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                             fontWeight: FontWeight.w600,
