@@ -159,13 +159,14 @@ class CategoryView extends StatelessWidget {
                                                   CrossAxisAlignment.center,
                                               children: <Widget>[
                                                 Text(
-                                                  '${category!.lessonCount} lesson',
+                                                  '\$ ${category!.original}',
                                                   textAlign: TextAlign.left,
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w200,
-                                                    fontSize: 12,
+                                                    fontSize: 14,
                                                     letterSpacing: 0.27,
-                                                    color: AppTheme.grey,
+                                                    color: AppTheme.dark_grey,
+                                                    decoration: TextDecoration.lineThrough
                                                   ),
                                                 ),
                                                 Container(
@@ -180,13 +181,13 @@ class CategoryView extends StatelessWidget {
                                                               FontWeight.w200,
                                                           fontSize: 18,
                                                           letterSpacing: 0.27,
-                                                          color: AppTheme.grey,
+                                                          color: AppTheme.nearlyBlack,
                                                         ),
                                                       ),
                                                       Icon(
                                                         Icons.star,
                                                         color:
-                                                            AppTheme.dark_grey,
+                                                            AppTheme.light_red,
                                                         size: 20,
                                                       ),
                                                     ],
@@ -209,15 +210,15 @@ class CategoryView extends StatelessWidget {
                                                   '\$${category!.money}',
                                                   textAlign: TextAlign.left,
                                                   style: TextStyle(
-                                                    fontWeight: FontWeight.w600,
-                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 20,
                                                     letterSpacing: 0.27,
-                                                    color: AppTheme.dark_grey,
+                                                    color: AppTheme.light_red,
                                                   ),
                                                 ),
                                                 Container(
                                                   decoration: BoxDecoration(
-                                                    color: AppTheme.dark_grey,
+                                                    color: AppTheme.light_red,
                                                     borderRadius:
                                                         const BorderRadius.all(
                                                             Radius.circular(

@@ -197,7 +197,7 @@ class _MainScreenState extends State<MainScreen> {
         Padding(
           padding: const EdgeInsets.only(top: 8.0, left: 18, right: 16),
           child: Text(
-            'Special Offer',
+            'Last minute Offer',
             textAlign: TextAlign.left,
             style: TextStyle(
               fontWeight: FontWeight.w600,
