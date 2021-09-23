@@ -113,7 +113,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                 Text(
+                                Text(
                                   '\$10',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
@@ -127,12 +127,11 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                   '\$30',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 22,
-                                    letterSpacing: 0.27,
-                                    color: AppTheme.grey,
-                                    decoration: TextDecoration.lineThrough
-                                  ),
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 22,
+                                      letterSpacing: 0.27,
+                                      color: AppTheme.grey,
+                                      decoration: TextDecoration.lineThrough),
                                 ),
                                 Container(
                                   child: Row(
@@ -165,7 +164,8 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                               padding: const EdgeInsets.all(8),
                               child: Row(
                                 children: <Widget>[
-                                  getTimeBoxUI('20:00 - 22:00', 'Collection time'),
+                                  getTimeBoxUI(
+                                      '20:00 - 22:00', 'Collection time'),
                                   getTimeBoxUI('6', 'Remaining'),
                                   getTimeBoxUI('300 m', 'Away'),
                                 ],
@@ -228,35 +228,48 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                     width: 16,
                                   ),
                                   Expanded(
-                                    child: Container(
-                                      height: 48,
-                                      decoration: BoxDecoration(
-                                        color: AppTheme.light_red,
-                                        borderRadius: const BorderRadius.all(
-                                          Radius.circular(16.0),
+                                    child: ElevatedButton(
+                                      // height: 48,
+                                      // decoration: BoxDecoration(
+                                      //   color: AppTheme.light_red,
+                                      //   borderRadius: const BorderRadius.all(
+                                      //     Radius.circular(16.0),
+                                      //   ),
+                                      //   boxShadow: <BoxShadow>[
+                                      //     BoxShadow(
+                                      //         color: AppTheme.nearlyBlack
+                                      //             .withOpacity(0.5),
+                                      //         offset: const Offset(1.1, 1.1),
+                                      //         blurRadius: 10.0),
+                                      //   ],
+                                      // ),
+                                      style: ButtonStyle(
+                                          backgroundColor:
+                                              MaterialStateProperty.all(
+                                                  AppTheme.light_red),
+                                          shadowColor:
+                                              MaterialStateProperty.all(
+                                                  AppTheme.dark_grey)),
+
+                                      child: Text(
+                                        'Reserve',
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 18,
+                                          letterSpacing: 0.0,
+                                          color: AppTheme.nearlyWhite,
                                         ),
-                                        boxShadow: <BoxShadow>[
-                                          BoxShadow(
-                                              color: AppTheme.nearlyBlack
-                                                  .withOpacity(0.5),
-                                              offset: const Offset(1.1, 1.1),
-                                              blurRadius: 10.0),
-                                        ],
                                       ),
-                                      child: Center(
-                                        child: Text(
-                                          'Reserve',
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 18,
-                                            letterSpacing: 0.0,
-                                            color: AppTheme.nearlyWhite,
-                                          ),
-                                        ),
-                                      ),
+                                      onPressed: () {
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) =>
+                                              _buildPopupDialog(context),
+                                        );
+                                      },
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
@@ -371,4 +384,96 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
       ),
     );
   }
+}
+
+Widget _buildPopupDialog(BuildContext context) {
+  int numberOfItems = 1;
+
+  Widget _incrementButton() {
+    return FloatingActionButton(
+      child: Icon(Icons.add, color: Colors.black87),
+      backgroundColor: Colors.white,
+      onPressed: () {
+        numberOfItems++;
+      },
+    );
+  }
+
+  Widget _decrementButton() {
+    return FloatingActionButton(
+        onPressed: () {},
+        child: Icon(
+          Icons.remove,
+          color: Colors.black87,
+        ),
+        backgroundColor: Colors.white);
+  }
+
+  return new AlertDialog(
+    title: const Text(
+      'Express Sushi',
+      style: TextStyle(
+          color: AppTheme.dark_grey, fontWeight: FontWeight.bold, fontSize: 25),
+    ),
+    content: new Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          "20:00 - 21:00",
+          style: TextStyle(
+              color: AppTheme.dark_grey,
+              fontWeight: FontWeight.w300,
+              fontSize: 15),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Center(
+            child: Text("Select quantity:",
+                style: TextStyle(
+                    color: AppTheme.light_red,
+                    fontWeight: FontWeight.w300,
+                    fontSize: 18))),
+        SizedBox(
+          height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            _decrementButton(),
+            Text(
+              numberOfItems.toString(),
+              style: TextStyle(fontSize: 18.0),
+            ),
+            _incrementButton(),
+          ],
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Center(
+          child: ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                "Confirm",
+                style: TextStyle(
+                    color: AppTheme.nearlyWhite,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17),
+              ),
+              style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(AppTheme.light_red))),
+        )
+      ],
+    ),
+    // actions: <Widget>[
+    //   new IconButton(
+    //       onPressed: () {
+    //         Navigator.of(context).pop();
+    //       },
+    //       icon: Icon(Icons.close))
+    // ],
+  );
 }

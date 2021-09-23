@@ -156,12 +156,13 @@ class CategoryView extends StatelessWidget {
                                                   '\$ ${category!.original}',
                                                   textAlign: TextAlign.left,
                                                   style: TextStyle(
-                                                    fontWeight: FontWeight.w200,
-                                                    fontSize: 12,
-                                                    letterSpacing: 0.27,
-                                                    color: AppTheme.dark_grey,
-                                                    decoration: TextDecoration.lineThrough
-                                                  ),
+                                                      fontWeight:
+                                                          FontWeight.w200,
+                                                      fontSize: 12,
+                                                      letterSpacing: 0.27,
+                                                      color: AppTheme.dark_grey,
+                                                      decoration: TextDecoration
+                                                          .lineThrough),
                                                 ),
                                                 Text(
                                                   '\$ ${category!.money}',

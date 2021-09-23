@@ -162,12 +162,13 @@ class CategoryView extends StatelessWidget {
                                                   '\$ ${category!.original}',
                                                   textAlign: TextAlign.left,
                                                   style: TextStyle(
-                                                    fontWeight: FontWeight.w200,
-                                                    fontSize: 14,
-                                                    letterSpacing: 0.27,
-                                                    color: AppTheme.dark_grey,
-                                                    decoration: TextDecoration.lineThrough
-                                                  ),
+                                                      fontWeight:
+                                                          FontWeight.w200,
+                                                      fontSize: 14,
+                                                      letterSpacing: 0.27,
+                                                      color: AppTheme.dark_grey,
+                                                      decoration: TextDecoration
+                                                          .lineThrough),
                                                 ),
                                                 Container(
                                                   child: Row(
@@ -181,7 +182,8 @@ class CategoryView extends StatelessWidget {
                                                               FontWeight.w200,
                                                           fontSize: 18,
                                                           letterSpacing: 0.27,
-                                                          color: AppTheme.nearlyBlack,
+                                                          color: AppTheme
+                                                              .nearlyBlack,
                                                         ),
                                                       ),
                                                       Icon(
