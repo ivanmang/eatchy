@@ -25,9 +25,17 @@ class HomeScreen extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => MainScreen()),
                     );
                   },
-                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppTheme.light_red), fixedSize: MaterialStateProperty.all(Size(200, 30))),
-                  child: const Text("Sign in ", style: TextStyle(color: AppTheme.nearlyWhite),)),
-                  SizedBox(height: 20,),
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(AppTheme.light_red),
+                      fixedSize: MaterialStateProperty.all(Size(200, 30))),
+                  child: const Text(
+                    "Sign in ",
+                    style: TextStyle(color: AppTheme.nearlyWhite),
+                  )),
+              SizedBox(
+                height: 20,
+              ),
               TextButton(
                   onPressed: () {
                     Navigator.push(
